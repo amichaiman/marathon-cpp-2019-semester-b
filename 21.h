@@ -11,7 +11,7 @@ using namespace std;
 class SArray {
 protected:
     int size;
-    bool isLegal(int index) const { return index >= 0 && index < size }
+    bool isLegal(int index) const { return index >= 0 && index < size; }
 public:
     SArray(int sz): size(sz) {}
     int getSize() const { return size; }
@@ -66,6 +66,17 @@ private:
     T array[N];
 };
 
-
+template <typename T, unsigned int N, unsigned int M>
+class Matrix {
+public:
+    T operator()(int i, int j) const {
+        return (matrix[i])[j];
+    }
+    T& operator()(int i, int j) {
+        return (matrix[i])[j];
+    }
+private:
+    FixedVector<FixedVector<T, N>, M> matrix;
+};
 
 #endif //MARATHON_CPP_2019_SEMESTER_B_21_H
